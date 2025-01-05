@@ -99,7 +99,7 @@ endif()
 
 string(TOLOWER "${CMAKE_BUILD_TYPE}" BUILD_TYPE_LOWER_CASE)
 
-option(UA_ENABLE_AMALGAMATION "Concatenate the library to a single file open62541.h/.c" OFF)
+option(UA_ENABLE_AMALGAMATION "Concatenate the library to a single file open62541.h/.c" ON)
 option(BUILD_SHARED_LIBS "Enable building of shared libraries (dll/so)" OFF)
 set(UA_LOGLEVEL 100 CACHE STRING "Minimal level for logs (in addition to the log plugin settings) (100=TRACE, 200=DEBUG, 300=INFO, 400=WARNING, 500=ERROR, 600=FATAL)")
 option(UA_ENABLE_DIAGNOSTICS "Enable diagnostics information exposed by the server" ON)
@@ -142,7 +142,7 @@ mark_as_advanced(UA_ENABLE_NODEMANAGEMENT)
 option(UA_ENABLE_PARSING "Utility functions that require parsing (e.g. NodeId expressions)" ON)
 mark_as_advanced(UA_ENABLE_PARSING)
 
-option(UA_ENABLE_INLINABLE_EXPORT "Export 'static inline' methods as regular API" OFF)
+option(UA_ENABLE_INLINABLE_EXPORT "Export 'static inline' methods as regular API" ON)
 mark_as_advanced(UA_ENABLE_INLINABLE_EXPORT)
 
 # mDNS provider
@@ -249,7 +249,7 @@ if(UA_ENABLE_TPM2_KEYSTORE)
 endif()
 
 # Namespace Zero
-set(UA_NAMESPACE_ZERO "REDUCED" CACHE STRING "Completeness of the generated namespace zero (minimal/reduced/full)")
+set(UA_NAMESPACE_ZERO "FULL" CACHE STRING "Completeness of the generated namespace zero (minimal/reduced/full)")
 SET_PROPERTY(CACHE UA_NAMESPACE_ZERO PROPERTY STRINGS "MINIMAL" "REDUCED" "FULL")
 if(UA_NAMESPACE_ZERO STREQUAL "MINIMAL")
     set(UA_GENERATED_NAMESPACE_ZERO OFF)
@@ -343,7 +343,7 @@ if(UA_ENABLE_PUBSUB_INFORMATIONMODEL)
     endif()
 endif()
 
-option(UA_ENABLE_PUBSUB_FILE_CONFIG "Enable loading PubSub Config from file extension" OFF)
+option(UA_ENABLE_PUBSUB_FILE_CONFIG "Enable loading PubSub Config from file extension" ON)
 mark_as_advanced(UA_ENABLE_PUBSUB_FILE_CONFIG)
 if(UA_ENABLE_PUBSUB_FILE_CONFIG)
     if(NOT UA_ENABLE_PUBSUB)
@@ -351,7 +351,7 @@ if(UA_ENABLE_PUBSUB_FILE_CONFIG)
     endif()
 endif()
 
-option(UA_ENABLE_MQTT "Enable MQTT connections for the EventLoop" OFF)
+option(UA_ENABLE_MQTT "Enable MQTT connections for the EventLoop" ON)
 mark_as_advanced(UA_ENABLE_MQTT)
 if(UA_ENABLE_MQTT)
     if(NOT EXISTS "${UA_FILE_MQTT}")

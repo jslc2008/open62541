@@ -83,6 +83,8 @@ examples/
 /exampleClient_legacy
 /src_generated/
 **/build
+**/Build
+Build_win/
 /cmake-build*
 /tools/certs/certs/*
 Pipfile
